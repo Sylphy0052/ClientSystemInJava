@@ -25,7 +25,7 @@ public class LoginStaff {
         return staffId;
     }
 
-    public void setStaff_id(String staff_id) {
+    public void setStaffId(String staff_id) {
         this.staffId = staff_id;
     }
 

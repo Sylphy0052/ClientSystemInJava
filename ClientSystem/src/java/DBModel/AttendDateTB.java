@@ -18,7 +18,7 @@ public class AttendDateTB {
     private int attendDateId;
     
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "client", referencedColumnName = "clientName")
+    @JoinColumn(name = "client", referencedColumnName = "attendDate")
     private Date attendDate;
 
     public AttendDateTB() {}

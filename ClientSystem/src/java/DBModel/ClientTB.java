@@ -1,5 +1,6 @@
 package DBModel;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -32,8 +33,8 @@ public class ClientTB {
     @JoinColumn(name = "course", referencedColumnName = "courseId")
     private CourseTB course;
     
-    @OneToMany(mappedBy="attendDate")
-    private List<AttendDateTB> attendDate;
+    @OneToMany(mappedBy="attendDate", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    private ArrayList<AttendDateTB> attendDate;
     
     public ClientTB() {}
     
@@ -41,6 +42,7 @@ public class ClientTB {
         this.clientName = name;
         this.gender = gender;
         this.address = address;
+        attendDate = new ArrayList<>();
     }
 
     public int getClientId() {
@@ -87,7 +89,7 @@ public class ClientTB {
         return attendDate;
     }
 
-    public void setAttendDate(List<AttendDateTB> attendDate) {
+    public void setAttendDate(ArrayList<AttendDateTB> attendDate) {
         this.attendDate = attendDate;
     }
     
