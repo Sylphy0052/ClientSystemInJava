@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:jsf="http://xmlns.jcp.org/jsf"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Add Client Page</title>
     </h:head>
@@ -14,7 +15,46 @@
             </ui:insert> 
         </header>
         
-        <h1>Top Page</h1>
+        <div class="main">
+            <h:form>
+                <div class="main-title">Add Client Form</div>
+                <table>
+                    <tr>
+                        <td>Name: </td>
+                        <td><input jsf:id="client-name" type="text" jsf:value="#{addClient.name}" placeholder="John Smith" /></td>
+                    </tr>
+                    <tr>
+                        <td>Gender: </td>
+                        <td>
+                            <h:selectOneRadio value="#{addClient.gender}">
+                                <f:selectItems value="#{selection.genders}" />
+                            </h:selectOneRadio>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Address: </td>
+                        <td><input jsf:id="client-address" type="text" jsf:value="#{addClient.address}" placeholder="Boston Street, Boston MA" /></td>
+                    </tr>
+                    <tr>
+                        <td>Course: </td>
+                        <td>
+                            <h:selectOneMenu value="#{addClient.course}">
+                                <f:selectItems value="#{selection.courses}" />
+                            </h:selectOneMenu>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Start Date: </td>
+                        <td>
+                            <input type="date" jsf:id="start-date" jsf:value="#{addClient.date}" />
+                        </td>
+                    </tr>
+                </table>
+                <div class="add-btn">
+                    <h:commandButton id="add-client" value="Confirm" action="#{addClient.addClient}" />
+                </div>
+            </h:form>
+        </div>
     </h:body>
 </html>
 
