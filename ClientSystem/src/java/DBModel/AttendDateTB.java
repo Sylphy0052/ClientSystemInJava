@@ -1,5 +1,6 @@
 package DBModel;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,14 +12,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class AttendDateTB {
+public class AttendDateTB implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id")
     private int attendDateId;
     
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "client", referencedColumnName = "attendDate")
     private Date attendDate;
 
     public AttendDateTB() {}

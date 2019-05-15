@@ -1,5 +1,7 @@
 package DBModel;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -8,10 +10,12 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 
 @Entity
-public class CourseTB {
+public class CourseTB implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id")
@@ -20,8 +24,9 @@ public class CourseTB {
     @Column(name = "name")
     private String courseName;
     
-    @OneToMany(mappedBy="course", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
-    private List<ClientTB> clientList;
+    @OneToMany(fetch=FetchType.EAGER)
+    @JoinTable(inverseJoinColumns=@JoinColumn(name="client_id"))
+    private List<ClientTB> clientList = new ArrayList<>();
     
     public CourseTB() {}
     
