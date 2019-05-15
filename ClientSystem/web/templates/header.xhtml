@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head><title></title></h:head>
+    <h:body>
+        <ui:composition>
+            <div id="head-column">
+                <div id="logo">
+                    <div id="logo-text"><h:outputText value=" English Academy"/></div>
+                </div>
+
+                <nav>
+                    <h:form>
+                        <ul id="head-ui">
+                            <li><h:commandButton styleClass="nav-btn" value="Schedule" action="schedule.xhtml" /></li>
+                            <li><h:commandButton styleClass="nav-btn" value="Add Client Info" action="add_client.xhtml"/></li>
+                            <li><h:commandButton styleClass="nav-btn" value="Customers Info" action="client_list.xhtml"/></li>                    
+                        </ul>
+                    </h:form>
+                </nav>
+            </div>
+        </ui:composition>
+    </h:body>
+</html>
+

@@ -21,5 +21,20 @@ public class LoginStaff {
             return null;
         }
     }
-    
+
+    public String getStaff_id() {
+        return staff_id;
+    }
+
+    public void setStaff_id(String staff_id) {
+        this.staff_id = staff_id;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
 }
