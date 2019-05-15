@@ -8,25 +8,25 @@ import javax.inject.Named;
 @SessionScoped
 @ManagedBean
 public class LoginStaff {
-    private String staff_id;
+    private String staffId;
     private String pass;
     
     public LoginStaff(){}
     
     public String login() {
-        if(staff_id.equals("111") && pass.equals("admin")) {
+        if(staffId.equals("111") && pass.equals("admin")) {
             return "main.xhtml";
         } else {
             return null;
         }
     }
 
-    public String getStaff_id() {
-        return staff_id;
+    public String getStaffId() {
+        return staffId;
     }
 
     public void setStaff_id(String staff_id) {
-        this.staff_id = staff_id;
+        this.staffId = staff_id;
     }
 
     public String getPass() {

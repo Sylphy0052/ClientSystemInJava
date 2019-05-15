@@ -13,6 +13,10 @@ public class DBController {
     
     public DBController() {}
     
+    public void add(ClientTB client) {
+        em.persist(client);
+    }
+    
     public List<ClientTB> getClients() {
         return em.createQuery("SELECT c FROM ClientTB c").getResultList();
     }

@@ -36,6 +36,12 @@ public class ClientTB {
     private List<AttendDateTB> attendDate;
     
     public ClientTB() {}
+    
+    public ClientTB(String name, String gender, String address) {
+        this.clientName = name;
+        this.gender = gender;
+        this.address = address;
+    }
 
     public int getClientId() {
         return clientId;
@@ -83,5 +89,9 @@ public class ClientTB {
 
     public void setAttendDate(List<AttendDateTB> attendDate) {
         this.attendDate = attendDate;
+    }
+    
+    public void setAttendDate(AttendDateTB attendDate) {
+        this.attendDate.add(attendDate);
     }
 }

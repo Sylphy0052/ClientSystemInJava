@@ -22,6 +22,10 @@ public class CourseTB {
     private List<ClientTB> clientList;
     
     public CourseTB() {}
+    
+    public CourseTB(String courseName) {
+        this.courseName = courseName;
+    }
 
     public int getCourseId() {
         return courseId;

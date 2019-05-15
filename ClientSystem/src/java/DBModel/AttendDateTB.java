@@ -22,6 +22,10 @@ public class AttendDateTB {
     private Date attendDate;
 
     public AttendDateTB() {}
+    
+    public AttendDateTB(Date date) {
+        this.attendDate = date;
+    }
 
     public int getAttendDateId() {
         return attendDateId;
