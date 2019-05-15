@@ -3,7 +3,6 @@ package BackingBean;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Named;
-import javax.validation.constraints.NotNull;
 
 @Named
 @SessionScoped
