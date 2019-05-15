@@ -14,7 +14,22 @@
             </ui:insert> 
         </header>
         
-        <h1>Top Page</h1>
+        <div class="client-list">
+            <div class="client-name">
+                <h2>Client List</h2>
+            </div>
+            <h:form>
+                <h:dataTable value="#{clientList.clientList}" var="client">
+                    <h:column>#{client.clientName}</h:column>
+                    <h:column>#{client.gender}</h:column>
+                    <h:column>#{client.address}</h:column>
+                    <h:column>#{client.course.courseName}</h:column>
+                    <h:column>
+                        <h:commandButton value="Detail" action="#{clientDetail.goToDetail(client)}" />
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </div>
     </h:body>
 </html>
 
