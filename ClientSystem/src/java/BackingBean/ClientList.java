@@ -18,13 +18,9 @@ public class ClientList {
     private DBController dbc;
     
     public ClientList() {}
-    
-    public String goToClientList() {
-        clientList = dbc.getClients();
-        return "client_list.xhtml";
-    }
 
     public List<ClientTB> getClientList() {
+        clientList = dbc.getClients();
         return clientList;
     }
 
