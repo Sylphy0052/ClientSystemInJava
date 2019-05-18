@@ -36,10 +36,19 @@ public class TopPage implements Serializable {
                 for(String name: arr) {
                     dbc.add(new CourseTB(name));
                 }
+                message = "Add course table";
             }
         } catch(EJBException e) {
             e.printStackTrace();
             message = "EJBException while adding course table";
         }
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }
