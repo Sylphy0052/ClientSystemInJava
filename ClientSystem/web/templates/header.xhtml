@@ -8,20 +8,23 @@
     <h:body>
         <ui:composition>
             <div id="head-column">
-                <div id="logo">
-                    <div id="logo-text"><h:outputText value=" English Academy"/></div>
-                </div>
+                <h:form>
+                    <div id="logo">
+                        <div id="logo-text"><h:outputText value=" English Academy"/></div>
+                        <h:commandButton styleClass="nav-right" value="Logout" action="login_staff.xhtml" />
+                    </div>
+                    <div class="br"></div>
 
-                <nav>
-                    <h:form>
-                        <ul id="head-ui">
+                    <nav>
+                        <ul id="header-ui">
                             <li><h:commandButton styleClass="nav-btn" value="Schedule" action="schedule.xhtml" /></li>
                             <li><h:commandButton styleClass="nav-btn" value="Add Client" action="add_client.xhtml"/></li>
-                            <li><h:commandButton styleClass="nav-btn" value="Client List" action="#{clientList.goToClientList}"/></li>                    
+                            <li><h:commandButton styleClass="nav-btn" value="Client List" action="client_list.xhtml"/></li>                    
                         </ul>
-                    </h:form>
-                </nav>
+                    </nav>
+                </h:form>
             </div>
+            <div class="br"></div>
         </ui:composition>
     </h:body>
 </html>
