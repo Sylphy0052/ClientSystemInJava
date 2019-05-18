@@ -29,7 +29,7 @@ public class RegistStaff implements Serializable {
     }
     
     public String regist() {
-        if(dbc.getStaff(name) != null) {
+        if(dbc.getStaff(name) == null) {
             message = "Staff Registration is Success";
             dbc.add(new StaffTB(name, pass));
         } else {
