@@ -6,12 +6,9 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -19,10 +16,10 @@ import javax.persistence.OneToMany;
 public class ClientTB implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "client_id")
     private int clientId;
     
-    @Column(name = "name")
+    @Column(name = "client_name")
     private String clientName;
     
     @Column(name = "gender")
@@ -31,13 +28,11 @@ public class ClientTB implements Serializable {
     @Column(name = "address")
     private String address;
     
-    @ManyToOne(cascade={CascadeType.ALL})
-    @JoinTable(name="course_id")
+    @ManyToOne(cascade={CascadeType.DETACH})
     private CourseTB course;
     
-    @OneToMany(fetch=FetchType.EAGER)
-    @JoinTable(inverseJoinColumns=@JoinColumn(name="attend_id"))
-    private List<AttendDateTB> attendDate;
+    @OneToMany(cascade={CascadeType.ALL})
+    private List<AttendDateTB> attendDate = new ArrayList<>();
     
     public ClientTB() {}
     
@@ -45,7 +40,6 @@ public class ClientTB implements Serializable {
         this.clientName = name;
         this.gender = gender;
         this.address = address;
-        attendDate = new ArrayList<>();
     }
 
     public int getClientId() {
