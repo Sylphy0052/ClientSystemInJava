@@ -28,6 +28,16 @@ public class DBController {
         em.persist(staff);
     }
     
+    public StaffTB getStaff(String name) {
+        TypedQuery<StaffTB> query = em.createQuery(
+                "SELECT s FROM StaffTB s WHERE s.name = :name",
+                StaffTB.class
+        );
+        return query
+                .setParameter("name", name)
+                .getSingleResult();
+    }
+    
     public StaffTB getStaff(String name, String pass) {
         TypedQuery<StaffTB> query = em.createQuery(
                 "SELECT s FROM StaffTB s WHERE s.name = :name AND s.pass = :pass",
