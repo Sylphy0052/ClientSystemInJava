@@ -8,7 +8,12 @@
     </h:head>
     <h:body>
         <h1>Top Page</h1>
-        <a jsf:outcome="login_staff" target="_blank">Login Page</a>
+        <h2>#{topPage.message}</h2>
+        <a jsf:outcome="login_staff" target="_blank">Login Page</a><br/>
+        <h:form>
+            <h:commandButton value="Add Course Table" action=""#{topPage.add} />
+        </h:form>
+        
     </h:body>
 </html>
 
