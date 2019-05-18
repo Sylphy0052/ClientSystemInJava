@@ -1,7 +1,9 @@
 package BackingBean;
 
 import Controller.DBController;
+import DBModel.StaffTB;
 import javax.ejb.EJB;
+import javax.ejb.EJBException;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Named;
@@ -21,12 +23,22 @@ public class LoginStaff {
     public LoginStaff(){}
     
     public String login() {
-        if(checkLogin()) {
+        try {
+            if(dbc.getStaff(name, pass) != null) {
+                clear();
+            }
             return "main.xhtml";
-        } else {
+        }catch(EJBException e) {
+            clear();
             message = "Invalid name or password";
             return null;
         }
+    }
+    
+    public void clear() {
+        name = "";
+        pass = "";
+        message = "";
     }
     
     private boolean checkLogin() {
