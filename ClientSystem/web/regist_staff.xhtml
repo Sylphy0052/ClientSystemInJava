@@ -9,6 +9,7 @@
         <link rel="stylesheet" type="text/css" href="./css/style.css"/>
     </h:head>
     <h:body>
+        <h2 class="err">#{registStaff.message}</h2>
         <h:form>
             <h:dataTable value="#{registStaff.staffList}" var="staff" id="table" border="1">
                 <h:column>
