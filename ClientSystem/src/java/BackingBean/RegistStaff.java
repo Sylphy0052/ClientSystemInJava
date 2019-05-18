@@ -16,6 +16,8 @@ public class RegistStaff implements Serializable {
     
     private List<StaffTB> staffList;
     
+    private String message = "";
+    
     @EJB
     private DBController dbc;
     
@@ -27,7 +29,13 @@ public class RegistStaff implements Serializable {
     }
     
     public String regist() {
-        dbc.add(new StaffTB(name, pass));
+        if(dbc.getStaff(name) != null) {
+            message = "Staff Registration is Success";
+            dbc.add(new StaffTB(name, pass));
+        } else {
+            message = "Staff Name is duplication";
+        }
+        
         return null;
     }
 
@@ -54,5 +62,13 @@ public class RegistStaff implements Serializable {
 
     public void setStaffList(List<StaffTB> staffList) {
         this.staffList = staffList;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }
