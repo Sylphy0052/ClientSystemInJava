@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    display: block;
+}
+
+h1,h2,.btn,table,a {
+    text-align: center;
+    margin: 10px auto;
+}
+
+.err {
+    color: red;
+}
