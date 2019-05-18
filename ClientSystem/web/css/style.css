@@ -7,6 +7,10 @@ a {
     display: block;
 }
 
+li {
+    list-style: none;
+}
+
 h1,h2,.btn,table,a {
     text-align: center;
     margin: 10px auto;
@@ -14,4 +18,41 @@ h1,h2,.btn,table,a {
 
 .err {
     color: red;
+}
+
+header {
+    width: 100%;
+}
+
+.logo-text {
+    float: left;
+}
+
+.nav-right {
+    float: right;
+}
+
+.header-right {
+    float: right;
+    margin-right: 20px;
+}
+
+.header {
+    width: 100%;
+    background-color: blue;
+}
+
+.header li {
+    float: left;
+    
+}
+
+.br {
+    clear: both;
+}
+
+.nav-btn {
+    width: 30%;
+    padding: 5px 0;
+    float: left;
 }
