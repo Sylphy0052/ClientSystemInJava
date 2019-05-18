@@ -5,6 +5,7 @@ import DBModel.StaffTB;
 import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
+import javax.ejb.EJBException;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
@@ -29,14 +30,22 @@ public class RegistStaff implements Serializable {
     }
     
     public String regist() {
-        if(dbc.getStaff(name) == null) {
-            message = "Staff Registration is Success";
+        try {
+            if(dbc.getStaff(name) != null) {
+                message = "Staff Name is duplication";
+            }
+        }catch(EJBException e) {
             dbc.add(new StaffTB(name, pass));
-        } else {
-            message = "Staff Name is duplication";
+            clear();
+            message = "Staff Registration is Success";
         }
-        
         return null;
+    }
+    
+    public void clear() {
+        name = "";
+        pass = "";
+        message = "";
     }
 
     public String getName() {
