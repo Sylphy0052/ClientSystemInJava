@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Registration Staff Page</title>
+        <link rel="stylesheet" type="text/css" href="./css/style.css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:dataTable value="#{registStaff.staffList}" var="staff" id="table" border="1">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Staff Name"/>
+                    </f:facet>
+                    #{staff.name}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText  value="Password"/>
+                    </f:facet>
+                    #{staff.pass}
+                </h:column>
+                <h:column>
+                    <h:commandButton id="delete" value="削除" action="#{registStaff.delete(staff)}"></h:commandButton>
+                </h:column>
+            </h:dataTable>
+            <table align="center" border="1">
+                <tr>
+                    <td>Name: </td>
+                    <td>
+                        <h:inputText value="#{registStaff.name}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Pass: </td>
+                    <td>
+                        <h:inputText value="#{registStaff.pass}" />
+                    </td>
+                </tr>
+            </table>
+            <div class="btn">
+                <h:commandButton value="Sign Up Staff" action="#{registStaff.regist}" />
+                <a href="#" onClick="window.close();">To Top Page</a>
+            </div>
+        </h:form>
+    </h:body>
+</html>
