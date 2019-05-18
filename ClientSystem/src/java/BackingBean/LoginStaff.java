@@ -1,5 +1,7 @@
 package BackingBean;
 
+import Controller.DBController;
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Named;
@@ -8,25 +10,35 @@ import javax.inject.Named;
 @SessionScoped
 @ManagedBean
 public class LoginStaff {
-    private String staffId;
+    private String name;
     private String pass;
+    
+    private String message = "";
+    
+    @EJB
+    DBController dbc;
     
     public LoginStaff(){}
     
     public String login() {
-        if(staffId.equals("111") && pass.equals("admin")) {
+        if(checkLogin()) {
             return "main.xhtml";
         } else {
+            message = "Invalid name or password";
             return null;
         }
     }
-
-    public String getStaffId() {
-        return staffId;
+    
+    private boolean checkLogin() {
+        return dbc.getStaff(name, pass) != null;
     }
 
-    public void setStaffId(String staff_id) {
-        this.staffId = staff_id;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPass() {
@@ -35,5 +47,13 @@ public class LoginStaff {
 
     public void setPass(String pass) {
         this.pass = pass;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }
