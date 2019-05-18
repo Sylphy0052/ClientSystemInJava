@@ -5,30 +5,33 @@
       xmlns:jsf="http://xmlns.jcp.org/jsf">
     <h:head>
         <title>Login Page</title>
+        <link rel="stylesheet" type="text/css" href="./css/style.css"/>
     </h:head>
     <h:body>
         <h:form>
             <div class="login-title">
                 <h1>Login</h1>
+                <h2 class="err">#{loginStaff.message}</h2>
             </div>
             <div class="login-form">
                 <table>
                     <tr>
-                        <td>Staff ID:</td>
+                        <td>ID:</td>
                         <td>
-                            <input jsf:id="staff-id" type="text" jsf:value="#{loginStaff.staffId}" placeholder="111" />
+                            <input jsf:id="staff-id" type="text" jsf:value="#{loginStaff.name}" placeholder="Staff ID" />
                         </td>
                     </tr>
                     <tr>
                         <td>PassWord:</td>
                         <td>
-                            <input jsf:id="staff-pass" type="password" jsf:value="#{loginStaff.pass}" placeholder="admin" />
+                            <input jsf:id="staff-pass" type="password" jsf:value="#{loginStaff.pass}" placeholder="Password" />
                         </td>
                     </tr>
                 </table>
             </div>
-            <div class="login-btn">
+            <div class="btn">
                 <h:commandButton id="login" value="Login" action="#{loginStaff.login}" />
+                <a href="#" onClick="#{loginStaff.clear()} window.close();">To Top Page</a>
             </div>
         </h:form>
     </h:body>
