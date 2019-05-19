@@ -2,10 +2,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:jsf="http://xmlns.jcp.org/jsf"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Schedule</title>
+        <link rel="stylesheet" type="text/css" href="./css/style.css"/>
     </h:head>
     <h:body>
         <header>
@@ -14,7 +15,41 @@
             </ui:insert> 
         </header>
         
-        <h1>Top Page</h1>
+        <div class="schedule-list">
+            <div class="schedule-name">
+                <h2>Schedule List</h2>
+            </div>
+            <h:form>
+                <h:dataTable value="#{schedule.todayScheduleList}" var="today_data" id="today-schedule-table" border="1" >
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Client Name" />
+                        </f:facet>
+                        #{today_data.name}
+                    </h:column>
+                    <h:column>
+                        <h:commandButton value="Detail" action="#{clientDetail.goToDetail(today_data.client)}" />
+                    </h:column>
+                </h:dataTable>
+                <h:dataTable value="#{schedule.nextScheduleList}" var="next_data" id="next-schedule-table" border="1" >
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Attend Date" />
+                        </f:facet>
+                        #{next_data.attendDate}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Client Name" />
+                        </f:facet>
+                        #{next_data.name}
+                    </h:column>
+                    <h:column>
+                        <h:commandButton value="Detail" action="#{clientDetail.goToDetail(next_data.client)}" />
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </div>
     </h:body>
 </html>
 
