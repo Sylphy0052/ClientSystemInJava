@@ -12,4 +12,8 @@ public class Utils {
         } catch(ParseException e) {}
         return null;
     }
+    
+    public static String convertDateFromString(Date d) {
+        return new SimpleDateFormat("yyyy-MM-dd").format(d);
+    }
 }
