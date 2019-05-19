@@ -4,7 +4,6 @@ import Controller.DBController;
 import DBModel.CourseTB;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
@@ -23,9 +22,7 @@ public class Selection implements Serializable {
     
     private void createGenders() {
         genderItems = new ArrayList<>();
-        List<String> arr = new ArrayList<>();
-        arr.add("Man");
-        arr.add("Woman");
+        String[] arr = {"Man", "Woman"};
         for(String str: arr) {
             final SelectItem item = new SelectItem();
             item.setLabel(str);
@@ -38,8 +35,8 @@ public class Selection implements Serializable {
         courseItems = new ArrayList<>();
         for(CourseTB model: dbc.getCourseList()) {
             final SelectItem item = new SelectItem();
-            item.setLabel(model.getCourseName());
-            item.setValue(model.getCourseName());
+            item.setLabel(model.getName());
+            item.setValue(model.getName());
             courseItems.add(item);
         }
     }
