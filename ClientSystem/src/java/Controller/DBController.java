@@ -71,4 +71,8 @@ public class DBController {
         em.remove(em.merge(staff));
     }
     
+    public void delete(ClientTB client) {
+        em.remove(em.merge(client));
+    }
+    
 }
