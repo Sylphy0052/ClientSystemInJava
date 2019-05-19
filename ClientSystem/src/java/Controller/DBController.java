@@ -51,7 +51,7 @@ public class DBController {
     
     public CourseTB getCourse(String course) {
         TypedQuery<CourseTB> query = em.createQuery(
-                "SELECT c FROM CourseTB c WHERE c.course_name = :name", CourseTB.class);
+                "SELECT c FROM CourseTB c WHERE c.name = :name", CourseTB.class);
         return query.setParameter("name", course).getSingleResult();
     }
     
