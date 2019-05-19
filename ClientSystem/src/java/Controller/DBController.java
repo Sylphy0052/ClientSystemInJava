@@ -49,7 +49,13 @@ public class DBController {
                 .getSingleResult();
     }
     
-    public List<ClientTB> getClients() {
+    public CourseTB getCourse(String course) {
+        TypedQuery<CourseTB> query = em.createQuery(
+                "SELECT c FROM CourseTB c WHERE c.course_name = :name", CourseTB.class);
+        return query.setParameter("name", course).getSingleResult();
+    }
+    
+    public List<ClientTB> getClientList() {
         return em.createQuery("SELECT c FROM ClientTB c").getResultList();
     }
     
