@@ -19,10 +19,7 @@ public class Selection implements Serializable {
     @EJB
     private DBController dbc;
     
-    public Selection() {
-        createGenders();
-        createCourses();
-    }
+    public Selection() {}
     
     private void createGenders() {
         genderItems = new ArrayList<>();
@@ -48,6 +45,7 @@ public class Selection implements Serializable {
     }
 
     public ArrayList<SelectItem> getGenderItems() {
+        createGenders();
         return genderItems;
     }
 
@@ -56,6 +54,7 @@ public class Selection implements Serializable {
     }
 
     public ArrayList<SelectItem> getCourseItems() {
+        createCourses();
         return courseItems;
     }
 
