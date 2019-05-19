@@ -12,9 +12,8 @@ public class CourseTB implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "course_id")
-    private int courseId;
+    private Integer courseId;
     
-//    @Column(name = "name")
     private String name;
     
     public CourseTB() {}
@@ -23,11 +22,11 @@ public class CourseTB implements Serializable {
         this.name = name;
     }
 
-    public int getCourseId() {
+    public Integer getCourseId() {
         return courseId;
     }
 
-    public void setCourseId(int courseId) {
+    public void setCourseId(Integer courseId) {
         this.courseId = courseId;
     }
 

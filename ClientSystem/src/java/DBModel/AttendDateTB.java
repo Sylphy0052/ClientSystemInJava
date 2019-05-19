@@ -15,7 +15,7 @@ public class AttendDateTB implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "date_id")
-    private int attendDateId;
+    private Integer attendDateId;
     
     @Column(name="attend_date")
     @Temporal(TemporalType.DATE)
@@ -27,11 +27,11 @@ public class AttendDateTB implements Serializable {
         this.attendDate = date;
     }
 
-    public int getAttendDateId() {
+    public Integer getAttendDateId() {
         return attendDateId;
     }
 
-    public void setAttendDateId(int attendDateId) {
+    public void setAttendDateId(Integer attendDateId) {
         this.attendDateId = attendDateId;
     }
 

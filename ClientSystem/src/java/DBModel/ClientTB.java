@@ -17,7 +17,7 @@ public class ClientTB implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "client_id")
-    private int clientId;
+    private Integer clientId;
     
     @Column(name = "client_name")
     private String clientName;
@@ -50,11 +50,11 @@ public class ClientTB implements Serializable {
         this.attendDate.add(ad);
     }
 
-    public int getClientId() {
+    public Integer getClientId() {
         return clientId;
     }
 
-    public void setClientId(int clientId) {
+    public void setClientId(Integer clientId) {
         this.clientId = clientId;
     }
 

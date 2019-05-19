@@ -6,11 +6,9 @@ import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
-@ManagedBean
 @SessionScoped
 @Named
 public class TopPage implements Serializable {
@@ -29,7 +27,7 @@ public class TopPage implements Serializable {
     private void createCourse() {
         try {
             List<CourseTB> courseList = dbc.getCourseList();
-            if(courseList.size() != 0) {
+            if(!courseList.isEmpty()) {
                 message = "Course table is already added";
             } else {
                 String[] arr = {"BASIC", "Bussiness", "TOEIC"};
@@ -39,7 +37,6 @@ public class TopPage implements Serializable {
                 message = "Add course table";
             }
         } catch(EJBException e) {
-            e.printStackTrace();
             message = "EJBException while adding course table";
         }
     }
