@@ -40,11 +40,24 @@ public class AddClient implements Serializable {
         clientTB.setCourse(courseTB);
         clientTB.setAttendDate(attendDateTB);
         dbc.add(clientTB);
+        clear();
         return "client_list.xhtml";
+    }
+    
+    public String back() {
+        return "add_client.xhtml";
     }
     
     public String toConfirm() {
         return "add_confirm.xhtml";
+    }
+    
+    private void clear() {
+        this.name = "";
+        this.gender = "";
+        this.address = "";
+        this.course = "";
+        this.date = "";
     }
 
     public String getName() {
