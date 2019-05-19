@@ -11,15 +11,21 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Named;
+import org.hibernate.validator.constraints.NotBlank;
 
 @Named
 @SessionScoped
 @ManagedBean
 public class AddClient {
+    @NotBlank
     private String name;
+    @NotBlank
     private String gender;
+    @NotBlank
     private String address;
+    @NotBlank
     private String course;
+    @NotBlank
     private String date;
     
     @EJB
@@ -30,12 +36,16 @@ public class AddClient {
     public String addClient() throws ParseException {
         Date attendDate = convertDate(date);
         ClientTB clientTB = new ClientTB(name, gender, address);
-        CourseTB courseTB = new CourseTB(course);
+        CourseTB courseTB = dbc.getCourse(course);
         AttendDateTB attendDateTB = new AttendDateTB(attendDate);
         clientTB.setCourse(courseTB);
         clientTB.setAttendDate(attendDateTB);
         dbc.add(clientTB);
         return "client_list.xhtml";
+    }
+    
+    public String toConfirm() {
+        return "add_confirm.xhtml";
     }
     
     private Date convertDate(String date) throws ParseException {
