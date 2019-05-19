@@ -20,7 +20,7 @@ public class ClientList {
     public ClientList() {}
 
     public List<ClientTB> getClientList() {
-        clientList = dbc.getClients();
+        clientList = dbc.getClientList();
         return clientList;
     }
 
