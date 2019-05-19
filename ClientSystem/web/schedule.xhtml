@@ -20,6 +20,7 @@
                 <h2>Schedule List</h2>
             </div>
             <h:form>
+                <h3>Today Schedule</h3>
                 <h:dataTable value="#{schedule.todayScheduleList}" var="today_data" id="today-schedule-table" border="1" >
                     <h:column>
                         <f:facet name="header">
@@ -31,6 +32,7 @@
                         <h:commandButton value="Detail" action="#{clientDetail.goToDetail(today_data.client)}" />
                     </h:column>
                 </h:dataTable>
+                <h3>Next Schedule</h3>
                 <h:dataTable value="#{schedule.nextScheduleList}" var="next_data" id="next-schedule-table" border="1" >
                     <h:column>
                         <f:facet name="header">
@@ -46,6 +48,24 @@
                     </h:column>
                     <h:column>
                         <h:commandButton value="Detail" action="#{clientDetail.goToDetail(next_data.client)}" />
+                    </h:column>
+                </h:dataTable>
+                <h3>Before Schedule</h3>
+                <h:dataTable value="#{schedule.beforeScheduleList}" var="before_data" id="before-schedule-table" border="1" >
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Attend Date" />
+                        </f:facet>
+                        #{before_data.attendDate}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Client Name" />
+                        </f:facet>
+                        #{before_data.name}
+                    </h:column>
+                    <h:column>
+                        <h:commandButton value="Detail" action="#{clientDetail.goToDetail(before_data.client)}" />
                     </h:column>
                 </h:dataTable>
             </h:form>
