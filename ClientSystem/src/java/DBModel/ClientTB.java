@@ -41,6 +41,14 @@ public class ClientTB implements Serializable {
         this.gender = gender;
         this.address = address;
     }
+    
+    public ClientTB(String name, String gender, String address, CourseTB course, AttendDateTB ad) {
+        this.clientName = name;
+        this.gender = gender;
+        this.address = address;
+        this.course = course;
+        this.attendDate.add(ad);
+    }
 
     public int getClientId() {
         return clientId;
