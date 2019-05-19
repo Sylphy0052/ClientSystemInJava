@@ -80,8 +80,9 @@ public class ClientDetail implements Serializable {
         this.client.setCourse(dbc.getCourse(course));
     }
     
-    public Date getDate() {
-        return client.getAttendDate().get(0).getAttendDate();
+    public String getDate() {
+        Date d = client.getAttendDate().get(0).getAttendDate();
+        return Utils.convertDateFromString(d);
     }
     
     public void setDate(String date) {
