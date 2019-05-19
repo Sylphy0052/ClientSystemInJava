@@ -30,8 +30,7 @@ public class RegistStaff implements Serializable {
     }
     
     public String regist() {
-        if(name.equals("") || pass.equals("")) {
-            message = "Name or Password is Empty.";
+        if(checkValidation()) {
             return null;
         }
         try {
@@ -44,6 +43,21 @@ public class RegistStaff implements Serializable {
             message = "Staff Registration is Success";
         }
         return null;
+    }
+    
+    private boolean checkValidation() {
+        if(name.equals("") && pass.equals("")) {
+            message = "Name and Password form must be not Empty.";
+            return true;
+        } else if(name.equals("")) {
+            message = "Name form must be not Empty.";
+            return true;
+        } else if(pass.equals("")) {
+            message = "Password form must be not Empty.";
+            return true;
+        } else {
+            return false;
+        }
     }
     
     public void clear() {
