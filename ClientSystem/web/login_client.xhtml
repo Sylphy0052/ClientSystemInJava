@@ -1,16 +1,39 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+    <h:head>
+        <title>Login Page</title>
+        <link rel="stylesheet" type="text/css" href="./css/style.css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <div class="login-title">
+                <h1>Login</h1>
+                <h2 class="err">#{loginClient.message}</h2>
+            </div>
+            <div class="login-form">
+                <table>
+                    <tr>
+                        <td>ID:</td>
+                        <td>
+                            <input jsf:id="client-id" type="text" jsf:value="#{loginClient.name}" placeholder="Client ID" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>PassWord:</td>
+                        <td>
+                            <input jsf:id="client-pass" type="password" jsf:value="#{loginClient.pass}" placeholder="Password" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="btn">
+                <h:commandButton id="login" value="Login" action="#{loginClient.login}" />
+                <a href="#" onClick="#{loginClient.clear()} window.close();">To Top Page</a>
+            </div>
+        </h:form>
+    </h:body>
 </html>
+
