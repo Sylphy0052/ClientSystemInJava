@@ -7,6 +7,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>Add Client Confirm Page</title>
+        <link rel="stylesheet" type="text/css" href="./css/style.css"/>
     </h:head>
     <h:body>
         <header>
@@ -17,41 +18,39 @@
         
         <div class="main">
             <h:form>
-                <div class="main-title">Add Client Confirm</div>
+                <h2>Add Client Confirm</h2>
                 <table>
                     <tr>
                         <td>Name: </td>
-                        <td><p jsf:id="client-name">#{addClient.name}</p></td>
+                        <td><p>#{addClient.name}</p></td>
                     </tr>
                     <tr>
                         <td>Gender: </td>
                         <td>
-                            <p jsf:id="client-gender">#{addClient.gender}</p>
+                            <p>#{addClient.gender}</p>
                         </td>
                     </tr>
                     <tr>
                         <td>Address: </td>
                         <td>
-                            <p jsf:id="client-address">#{addClient.address}</p>
+                            <p>#{addClient.address}</p>
                         </td>
                     </tr>
                     <tr>
                         <td>Course: </td>
                         <td>
-                            <h:selectOneMenu value="#{addClient.course}">
-                                <f:selectItems value="#{selection.courses}" />
-                            </h:selectOneMenu>
+                            <p>#{addClient.course}</p>
                         </td>
                     </tr>
                     <tr>
                         <td>Start Date: </td>
                         <td>
-                            <input type="date" jsf:id="start-date" jsf:value="#{addClient.date}" />
+                            <p>#{addClient.date}</p>
                         </td>
                     </tr>
                 </table>
-                <div class="add-btn">
-                    <h:commandButton id="add-client" value="Confirm" action="#{addClient.addClient}" />
+                <div class="btn">
+                    <h:commandButton value="Regist" action="#{addClient.addClient}" />
                 </div>
             </h:form>
         </div>
