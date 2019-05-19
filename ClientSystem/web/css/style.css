@@ -56,3 +56,14 @@ header {
     padding: 5px 0;
     float: left;
 }
+
+.client-list form table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+}
+
+.client-list form table td {
+    border: solid 1px black;
+    width: 300px;
+}
