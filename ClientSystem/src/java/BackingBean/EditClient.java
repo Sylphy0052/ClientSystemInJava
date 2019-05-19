@@ -7,7 +7,6 @@ import DBModel.CourseTB;
 import Utils.Utils;
 import java.io.Serializable;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
@@ -41,7 +40,7 @@ public class EditClient implements Serializable {
         this.address = client.getAddress();
         this.course = client.getCourse().getName();
         Date d = client.getAttendDate().get(0).getAttendDate();
-        this.date = new SimpleDateFormat("yyyy-MM-dd").format(d);
+        this.date = Utils.convertDateFromString(d);
         return "edit_client.xhtml";
     }
     
@@ -52,8 +51,21 @@ public class EditClient implements Serializable {
         AttendDateTB attendDateTB = new AttendDateTB(attendDate);
         clientTB.setCourse(courseTB);
         clientTB.setAttendDate(attendDateTB);
-        dbc.add(clientTB);
+        dbc.update(clientTB);
+        clear();
         return "client_list.xhtml";
+    }
+    
+    public void clear() {
+        this.name = "";
+        this.gender = "";
+        this.address = "";
+        this.course = "";
+        this.date = "";
+    }
+    
+    public String back() {
+        return "edit_client.xhtml";
     }
     
     public String toConfirm() {
