@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Edit Client Confirm Page</title>
+        <link rel="stylesheet" type="text/css" href="./css/style.css"/>
+    </h:head>
+    <h:body>
+        <header>
+            <ui:insert name="header">
+                <ui:include src="./templates/header.xhtml"/>
+            </ui:insert> 
+        </header>
+        
+        <div class="main">
+            <h:form>
+                <h2>Edit Client Confirm</h2>
+                <table>
+                    <tr>
+                        <td>Name: </td>
+                        <td><p>#{editClient.name}</p></td>
+                    </tr>
+                    <tr>
+                        <td>Gender: </td>
+                        <td>
+                            <p>#{editClient.gender}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Address: </td>
+                        <td>
+                            <p>#{editClient.address}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Course: </td>
+                        <td>
+                            <p>#{editClient.course}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Start Date: </td>
+                        <td>
+                            <p>#{editClient.date}</p>
+                        </td>
+                    </tr>
+                </table>
+                <div class="btn">
+                    <h:commandButton value="Update" action="#{editClient.edit()}" />
+                </div>
+            </h:form>
+        </div>
+    </h:body>
+</html>
+
