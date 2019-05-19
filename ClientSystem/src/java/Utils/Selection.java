@@ -1,16 +1,23 @@
 package Utils;
 
+import Controller.DBController;
+import DBModel.CourseTB;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.ejb.EJB;
+import javax.inject.Named;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.model.SelectItem;
 
-@ManagedBean
 @SessionScoped
-public class Selection {
-    private ArrayList<SelectItem> genders;
-    private ArrayList<SelectItem> courses;
+@Named
+public class Selection implements Serializable {
+    private ArrayList<SelectItem> genderItems;
+    private ArrayList<SelectItem> courseItems;
+    
+    @EJB
+    private DBController dbc;
     
     public Selection() {
         createGenders();
@@ -18,7 +25,7 @@ public class Selection {
     }
     
     private void createGenders() {
-        genders = new ArrayList<>();
+        genderItems = new ArrayList<>();
         List<String> arr = new ArrayList<>();
         arr.add("Man");
         arr.add("Woman");
@@ -26,37 +33,33 @@ public class Selection {
             final SelectItem item = new SelectItem();
             item.setLabel(str);
             item.setValue(str);
-            genders.add(item);
+            genderItems.add(item);
         }
     }
     
     private void createCourses() {
-        courses = new ArrayList<>();
-        List<String> arr = new ArrayList<>();
-        arr.add("Basic Course");
-        arr.add("Bussiness Course");
-        arr.add("TOEIC Course");
-        for(String str: arr) {
+        courseItems = new ArrayList<>();
+        for(CourseTB model: dbc.getCourseList()) {
             final SelectItem item = new SelectItem();
-            item.setLabel(str);
-            item.setValue(str);
-            courses.add(item);
+            item.setLabel(model.getCourseName());
+            item.setValue(model.getCourseName());
+            courseItems.add(item);
         }
     }
 
-    public ArrayList<SelectItem> getGenders() {
-        return genders;
+    public ArrayList<SelectItem> getGenderItems() {
+        return genderItems;
     }
 
-    public void setGenders(ArrayList<SelectItem> genders) {
-        this.genders = genders;
+    public void setGenderItems(ArrayList<SelectItem> genderItems) {
+        this.genderItems = genderItems;
     }
 
-    public ArrayList<SelectItem> getCourses() {
-        return courses;
+    public ArrayList<SelectItem> getCourseItems() {
+        return courseItems;
     }
 
-    public void setCourses(ArrayList<SelectItem> courses) {
-        this.courses = courses;
+    public void setCourseItems(ArrayList<SelectItem> courseItems) {
+        this.courseItems = courseItems;
     }
 }
