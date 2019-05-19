@@ -52,7 +52,9 @@ public class DBController {
     public CourseTB getCourse(String course) {
         TypedQuery<CourseTB> query = em.createQuery(
                 "SELECT c FROM CourseTB c WHERE c.name = :name", CourseTB.class);
-        return query.setParameter("name", course).getSingleResult();
+        return query
+                .setParameter("name", course)
+                .getSingleResult();
     }
     
     public List<ClientTB> getClientList() {
@@ -65,6 +67,10 @@ public class DBController {
     
     public List<StaffTB> getStaffList() {
         return em.createQuery("SELECT s FROM StaffTB s").getResultList();
+    }
+    
+    public void update(ClientTB client) {
+        em.merge(client);
     }
     
     public void delete(StaffTB staff) {
