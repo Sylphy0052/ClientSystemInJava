@@ -19,14 +19,13 @@ public class ClientTB implements Serializable {
     @Column(name = "client_id")
     private Integer clientId;
     
-    @Column(name = "client_name")
-    private String clientName;
+    private String name;
     
-    @Column(name = "gender")
     private String gender;
     
-    @Column(name = "address")
     private String address;
+    
+    private String pass;
     
     @ManyToOne(cascade={CascadeType.DETACH})
     private CourseTB course;
@@ -37,17 +36,19 @@ public class ClientTB implements Serializable {
     public ClientTB() {}
     
     public ClientTB(String name, String gender, String address) {
-        this.clientName = name;
+        this.name = name;
         this.gender = gender;
         this.address = address;
+        this.pass = "test";
     }
     
     public ClientTB(String name, String gender, String address, CourseTB course, AttendDateTB ad) {
-        this.clientName = name;
+        this.name = name;
         this.gender = gender;
         this.address = address;
         this.course = course;
         this.attendDate.add(ad);
+        this.pass = "test";
     }
 
     public Integer getClientId() {
@@ -58,12 +59,12 @@ public class ClientTB implements Serializable {
         this.clientId = clientId;
     }
 
-    public String getClientName() {
-        return clientName;
+    public String getName() {
+        return name;
     }
 
-    public void setClientName(String clientName) {
-        this.clientName = clientName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getGender() {
@@ -80,6 +81,14 @@ public class ClientTB implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 
     public CourseTB getCourse() {

@@ -35,7 +35,7 @@ public class EditClient implements Serializable {
     public EditClient() {}
     
     public String toEdit(ClientTB client) {
-        this.name = client.getClientName();
+        this.name = client.getName();
         this.gender = client.getGender();
         this.address = client.getAddress();
         this.course = client.getCourse().getName();

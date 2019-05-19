@@ -38,10 +38,6 @@ public class Schedule implements Serializable {
         this.clientList.forEach((client) -> {
             Date todayDate = new Date();
             Date targetDate = client.getAttendDate().get(0).getAttendDate();
-            System.out.println(todayDate);
-            System.out.println(targetDate);
-            System.out.println(todayDate.compareTo(targetDate));
-            System.out.println("=======");
             if(Utils.compareDate(todayDate, targetDate) == 0) {
                 ScheduleData sd = new ScheduleData(client);
                 todayScheduleList.add(sd);
@@ -99,7 +95,7 @@ public class Schedule implements Serializable {
         public ScheduleData() {}
         
         public ScheduleData(ClientTB client) {
-            this.name = client.getClientName();
+            this.name = client.getName();
             this.date = client.getAttendDate().get(0).getAttendDate();
             this.attendDate = Utils.convertDateFromString(this.date);
             this.client = client;

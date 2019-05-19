@@ -49,11 +49,11 @@ public class ClientDetail implements Serializable {
     }
     
     public String getName() {
-        return client.getClientName();
+        return client.getName();
     }
     
     public void setName(String clientName) {
-        this.client.setClientName(clientName);
+        this.client.setName(clientName);
     }
     
     public String getGender() {
