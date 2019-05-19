@@ -57,6 +57,17 @@ public class DBController {
                 .getSingleResult();
     }
     
+    public ClientTB getClient(String name, String pass) {
+        TypedQuery<ClientTB> query = em.createQuery(
+                "SELECT c FROM ClientTB c WHERE c.name = :name AND c.pass = :pass",
+                ClientTB.class
+        );
+        return query
+                .setParameter("name", name)
+                .setParameter("pass", pass)
+                .getSingleResult();
+    }
+    
     public List<ClientTB> getClientList() {
         return em.createQuery("SELECT c FROM ClientTB c").getResultList();
     }
