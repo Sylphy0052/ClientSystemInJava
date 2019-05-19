@@ -33,7 +33,7 @@ public class ClientDetail {
     }
     
     public String getCourseName() {
-        return client.getCourse().getCourseName();
+        return client.getCourse().getName();
     }
     
     public List<Date> getAttendDates() {

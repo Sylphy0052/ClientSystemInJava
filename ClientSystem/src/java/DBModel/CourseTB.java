@@ -14,13 +14,13 @@ public class CourseTB implements Serializable {
     @Column(name = "course_id")
     private int courseId;
     
-    @Column(name = "course_name")
-    private String courseName;
+//    @Column(name = "name")
+    private String name;
     
     public CourseTB() {}
     
-    public CourseTB(String courseName) {
-        this.courseName = courseName;
+    public CourseTB(String name) {
+        this.name = name;
     }
 
     public int getCourseId() {
@@ -31,11 +31,11 @@ public class CourseTB implements Serializable {
         this.courseId = courseId;
     }
 
-    public String getCourseName() {
-        return courseName;
+    public String getName() {
+        return name;
     }
 
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
+    public void setName(String name) {
+        this.name = name;
     }
 }
