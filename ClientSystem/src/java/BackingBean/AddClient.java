@@ -4,19 +4,18 @@ import Controller.DBController;
 import DBModel.AttendDateTB;
 import DBModel.ClientTB;
 import DBModel.CourseTB;
+import Utils.Utils;
+import java.io.Serializable;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.ejb.EJB;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import org.hibernate.validator.constraints.NotBlank;
 
-@Named
 @SessionScoped
-@ManagedBean
-public class AddClient {
+@Named
+public class AddClient implements Serializable {
     @NotBlank
     private String name;
     @NotBlank
@@ -34,7 +33,7 @@ public class AddClient {
     public AddClient() {}
     
     public String addClient() throws ParseException {
-        Date attendDate = convertDate(date);
+        Date attendDate = Utils.convertDate(date);
         ClientTB clientTB = new ClientTB(name, gender, address);
         CourseTB courseTB = dbc.getCourse(course);
         AttendDateTB attendDateTB = new AttendDateTB(attendDate);
@@ -46,11 +45,6 @@ public class AddClient {
     
     public String toConfirm() {
         return "add_confirm.xhtml";
-    }
-    
-    private Date convertDate(String date) throws ParseException {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        return sdf.parse(date);
     }
 
     public String getName() {
@@ -100,7 +94,4 @@ public class AddClient {
     public void setDbc(DBController dbc) {
         this.dbc = dbc;
     }
-    
-    
-    
 }
