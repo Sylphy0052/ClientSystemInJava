@@ -7,6 +7,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Add Client Page</title>
+        <link rel="stylesheet" type="text/css" href="./css/style.css"/>
     </h:head>
     <h:body>
         <header>
@@ -17,11 +18,11 @@
         
         <div class="main">
             <h:form>
-                <div class="main-title">Add Client Form</div>
+                <h2>Add Client Form</h2>
                 <table>
                     <tr>
                         <td>Name: </td>
-                        <td><input jsf:id="client-name" type="text" jsf:value="#{addClient.name}" placeholder="John Smith" /></td>
+                        <td><input type="text" jsf:value="#{addClient.name}" placeholder="John Smith" /></td>
                     </tr>
                     <tr>
                         <td>Gender: </td>
@@ -33,7 +34,7 @@
                     </tr>
                     <tr>
                         <td>Address: </td>
-                        <td><input jsf:id="client-address" type="text" jsf:value="#{addClient.address}" placeholder="Boston Street, Boston MA" /></td>
+                        <td><input type="text" jsf:value="#{addClient.address}" placeholder="Boston Street, Boston MA" /></td>
                     </tr>
                     <tr>
                         <td>Course: </td>
@@ -50,8 +51,8 @@
                         </td>
                     </tr>
                 </table>
-                <div class="add-btn">
-                    <h:commandButton id="add-client" value="Confirm" action="#{addClient.addClient}" />
+                <div class="btn">
+                    <h:commandButton value="Confirm" action="#{addClient.toConfirm}" />
                 </div>
             </h:form>
         </div>
