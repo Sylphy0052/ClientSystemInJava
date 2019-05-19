@@ -22,7 +22,7 @@ public class LoginStaff implements Serializable {
     
     public String login() {
         try {
-            if(dbc.getStaff(name, pass) != null) {
+            if(checkLogin()) {
                 clear();
             }
             return "main.xhtml";
