@@ -30,6 +30,10 @@ public class RegistStaff implements Serializable {
     }
     
     public String regist() {
+        if(name.equals("") || pass.equals("")) {
+            message = "Name or Password is Empty.";
+            return null;
+        }
         try {
             if(dbc.getStaff(name) != null) {
                 message = "Staff Name is duplication";
