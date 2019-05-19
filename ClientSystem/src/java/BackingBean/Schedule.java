@@ -17,6 +17,7 @@ import javax.inject.Named;
 public class Schedule implements Serializable {
     private List<ScheduleData> todayScheduleList;
     private List<ScheduleData> nextScheduleList;
+    private List<ScheduleData> beforeScheduleList;
     private List<ClientTB> clientList;
     
     @EJB
@@ -33,6 +34,7 @@ public class Schedule implements Serializable {
     private void createScheduleList() {
         todayScheduleList = new ArrayList<>();
         nextScheduleList = new ArrayList<>();
+        beforeScheduleList = new ArrayList<>();
         this.clientList.forEach((client) -> {
             Date todayDate = new Date();
             Date targetDate = client.getAttendDate().get(0).getAttendDate();
@@ -46,17 +48,13 @@ public class Schedule implements Serializable {
             } else if(Utils.compareDate(todayDate, targetDate) == 1) {
                 ScheduleData sd = new ScheduleData(client);
                 nextScheduleList.add(sd);
+            } else {
+                ScheduleData sd = new ScheduleData(client);
+                beforeScheduleList.add(sd);
             }
         });
-        System.out.println("===Today===");
-        this.todayScheduleList.forEach((client) -> {
-            System.out.println(client.name);
-        });
-        System.out.println("===Next===");
-        this.nextScheduleList.forEach((client) -> {
-            System.out.println(client.name);
-        });
         nextScheduleList.sort((a, b)-> a.getDate().compareTo(b.getDate()));
+        beforeScheduleList.sort((a, b)-> b.getDate().compareTo(a.getDate()));
     }
 
     public List<ScheduleData> getTodayScheduleList() {
@@ -74,6 +72,14 @@ public class Schedule implements Serializable {
 
     public void setNextScheduleList(List<ScheduleData> nextScheduleList) {
         this.nextScheduleList = nextScheduleList;
+    }
+
+    public List<ScheduleData> getBeforeScheduleList() {
+        return beforeScheduleList;
+    }
+
+    public void setBeforeScheduleList(List<ScheduleData> beforeScheduleList) {
+        this.beforeScheduleList = beforeScheduleList;
     }
 
     public List<ClientTB> getClientList() {
