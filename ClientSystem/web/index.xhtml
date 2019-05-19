@@ -10,7 +10,8 @@
     <h:body>
         <h1>Top Page</h1>
         <h2 class="err">#{topPage.message}</h2>
-        <a jsf:outcome="login_staff" target="_blank">Login Page</a>
+        <a jsf:outcome="login_staff" target="_blank">Staff Login Page</a>
+        <a jsf:outcome="login_client" target="_blank">Client Login Page</a>
         <a jsf:outcome="regist_staff" target="_blank">Sign Up Staff Page</a>
         <h:form class="btn">
             <h:commandButton value="Add Course Table" action="#{topPage.add}" />
