@@ -1,17 +1,15 @@
 package BackingBean;
 
 import Controller.DBController;
-import DBModel.StaffTB;
+import java.io.Serializable;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
-@Named
 @SessionScoped
-@ManagedBean
-public class LoginStaff {
+@Named
+public class LoginStaff implements Serializable {
     private String name;
     private String pass;
     

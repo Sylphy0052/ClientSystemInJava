@@ -1,12 +1,11 @@
 package BackingBean;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import java.io.Serializable;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
-@Named
 @SessionScoped
-@ManagedBean
-public class Schedule {
+@Named
+public class Schedule implements Serializable {
     
 }

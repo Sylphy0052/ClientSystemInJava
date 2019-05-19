@@ -2,16 +2,15 @@ package BackingBean;
 
 import Controller.DBController;
 import DBModel.ClientTB;
+import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
-@Named
 @SessionScoped
-@ManagedBean
-public class ClientList {
+@Named
+public class ClientList implements Serializable {
     private List<ClientTB> clientList;
     
     @EJB
